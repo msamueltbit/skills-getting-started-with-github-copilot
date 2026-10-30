@@ -48,3 +48,18 @@ The application uses a simple data model with meaningful identifiers:
    - Grade level
 
 All data is stored in memory, which means data will be reset when the server restarts.
+
+## Backend Tests
+
+From the repository root, install the dependencies and run the tests:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest tests/ -q
+```
+
+The backend tests in [tests/](../tests/) use pytest and FastAPI's `TestClient`.
+Each test follows the Arrange-Act-Assert (AAA) pattern. Fixtures provide fresh,
+isolated activity data for each test and restore the application's original data
+afterward. The tests cover activity responses, redirects, registration,
+duplicate rejection, unregistration, and missing-parameter validation.
